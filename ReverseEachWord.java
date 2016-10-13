@@ -13,22 +13,18 @@ public class ReverseEachWord {
 
 	private static void reveachword(String str) {
 		String string[] = str.split(" ");
-		String RevStr =" ";
-		for(int i=0; i< string.length;i++)
-		{
-			String word =string[i];
-			String Revword =" ";
-			for(int j=word.length()-1;j>=0;j--)
-			{
+		String RevStr = " ";
+		for (int i = 0; i < string.length; i++) {
+			String word = string[i];
+			String Revword = " ";
+			for (int j = word.length() - 1; j >= 0; j--) {
 				Revword = Revword + word.charAt(j);
 			}
 			RevStr = RevStr + Revword + " ";
 		}
-		System.out.println("Original String :     " +str);
-		System.out.println("Rev String is   :     " +RevStr);
-		
-		
+		System.out.println("Original String :     " + str);
+		System.out.println("Rev String is   :     " + RevStr);
+
 	}
-	
-	
+
 }

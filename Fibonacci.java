@@ -2,7 +2,7 @@ package com.sai;
 
 import java.util.*;
 
-public class Fibonacc {
+public class Fibonacci {
 	
 	 public static void main(String args[])
 		{

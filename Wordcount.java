@@ -12,41 +12,29 @@ public class Wordcount {
 	}
 
 }
-class duplicatewordcount{
+
+class duplicatewordcount {
 
 	public void duplicatecount(String string) {
-		
+
 		String[] words = string.split(" ");
-		HashMap<String,Integer> hashmap =new HashMap<String, Integer>();
-		for(String word : words)
-		{
-			if(hashmap.containsKey(word.toLowerCase()))
-			{
-				hashmap.put(word.toLowerCase(), hashmap.get(word.toLowerCase())+1);
-			}
-			else
-			{
-				hashmap.put(word.toLowerCase(),1);
+		HashMap<String, Integer> hashmap = new HashMap<String, Integer>();
+		for (String word : words) {
+			if (hashmap.containsKey(word.toLowerCase())) {
+				hashmap.put(word.toLowerCase(), hashmap.get(word.toLowerCase()) + 1);
+			} else {
+				hashmap.put(word.toLowerCase(), 1);
 			}
 		}
-		
+
 		Set<String> sets = hashmap.keySet();
-		
-		for(String set: sets)
-		{
-			if(hashmap.get(set)>1)
-			{
-				System.out.println(set +":" +hashmap.get(set)  );
+
+		for (String set : sets) {
+			if (hashmap.get(set) > 1) {
+				System.out.println(set + ":" + hashmap.get(set));
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
+
 	}
-	
-	
+
 }
