@@ -2,7 +2,7 @@ package com.sai;
 
 import java.util.Scanner;
 
-public class StackwithArray {
+public class StackArray {
 
 	public static void main(String[] args) {
 		System.out.println("Enter the size of the stack");
@@ -66,7 +66,8 @@ class Stack {
 		if (top == size - 1) {
 			System.out.println("Stack is full");
 		} else {
-			items[++top] = i;
+			top++;
+			items[top] = i;
 			System.out.println("Pushed item is" + items[top]);
 
 		}
