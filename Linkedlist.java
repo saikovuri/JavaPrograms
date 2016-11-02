@@ -100,11 +100,11 @@ public class Linkedlist {
 
 	public void display() {
 		ListNode dummy = head;
-		System.out.println(dummy);
-		while (dummy.next != null) {
 
-			dummy = dummy.next;
+		while (dummy != null) {
 			System.out.println(dummy);
+			dummy = dummy.next;
+
 		}
 
 	}

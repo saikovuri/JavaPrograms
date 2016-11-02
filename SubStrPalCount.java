@@ -3,6 +3,8 @@ package com.sai;
 import java.util.HashSet;
 import java.util.Iterator;
 
+//Program to display sub strings which are palindrome
+
 public class SubStrPalCount {
 
 	public void findpalin(String str) {

@@ -41,6 +41,22 @@ public class Binarytree {
 			inOrderTraversalTree(focusNode.rightchild);
 		}
 	}
+	
+	public void preOrderTraversalTree(Node focusNode) {
+		if (focusNode != null) {
+			System.out.println(focusNode);
+			inOrderTraversalTree(focusNode.leftchild);
+			inOrderTraversalTree(focusNode.rightchild);
+		}
+	}
+	
+	public void postOrderTraversalTree(Node focusNode) {
+		if (focusNode != null) {
+			inOrderTraversalTree(focusNode.leftchild);
+			inOrderTraversalTree(focusNode.rightchild);
+			System.out.println(focusNode);
+		}
+	}
 
 	public Node findNode(int key) {
 		Node focusNode = root;
@@ -68,11 +84,14 @@ public class Binarytree {
 		theTree.addNode(50, "abhinav");
 		theTree.addNode(20, "raghu");
 		theTree.addNode(60, "vinay");
-
+        System.out.println("Inorder traversel is:");
 		theTree.inOrderTraversalTree(theTree.root);
 		System.out.println("Search for 30");
 		System.out.println(theTree.findNode(30));
-
+		System.out.println("Preorder traversel is:");
+		theTree.preOrderTraversalTree(theTree.root);
+		System.out.println("Postorder traversel is:");
+		theTree.postOrderTraversalTree(theTree.root);
 	}
 
 }
