@@ -27,7 +27,7 @@ public class Anagram {
 		}
 
 		for (char c : c2) {
-			int count = -1;
+			int count = 0;
 			if (h1.containsKey(c)) {
 				count = h1.get(c) - 1;
 			}
@@ -45,8 +45,8 @@ public class Anagram {
 	}
 
 	public static void main(String[] args) {
-		String a = "nagaram";
-		String b = "anagram";
+		String a = "mary";
+		String b = "army";
 		boolean x = AnagramCal(a, b);
 		if (x == true) {
 			System.out.println("Anagram");

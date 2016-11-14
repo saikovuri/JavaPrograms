@@ -37,15 +37,15 @@ public class BST {
 	public void preOrderTraversalTree(BS focusNode) {
 		if (focusNode != null) {
 			System.out.println(focusNode);
-			inOrderTraversalTree(focusNode.left);
-			inOrderTraversalTree(focusNode.right);
+			preOrderTraversalTree(focusNode.left);
+			preOrderTraversalTree(focusNode.right);
 		}
 	}
 
 	public void postOrderTraversalTree(BS focusNode) {
 		if (focusNode != null) {
-			inOrderTraversalTree(focusNode.left);
-			inOrderTraversalTree(focusNode.right);
+			postOrderTraversalTree(focusNode.left);
+			postOrderTraversalTree(focusNode.right);
 			System.out.println(focusNode);
 		}
 	}
@@ -70,16 +70,16 @@ public class BST {
 		}
 	}
 
-	public int findMin(BS node) {
+	public BS findMin(BS node) {
 		if (node == null) {
 			System.out.println("Tree is empty");
-			return -1;
+			return null;
 		}
 		BS current = node;
 		while (current.left != null) {
 			current = current.left;
 		}
-		return current.data;
+		return current;
 	}
 
 	public int findHeight(BS node) {
@@ -120,17 +120,118 @@ public class BST {
 		return (isBSTCheck(node.left, min, node.data - 1)) && (isBSTCheck(node.right, node.data + 1, max));
 	}
 
+	@SuppressWarnings("unused")
+	private int deleteNode(BS node, int data) {
+
+		BS focusnode = node;
+		BS parent = node;
+		boolean isLeftChild = true;
+		while (focusnode.data != data) {
+			parent = focusnode;
+			if (data < focusnode.data) {
+				isLeftChild = true;
+				focusnode = focusnode.left;
+			}
+
+			if (data > focusnode.data) {
+				isLeftChild = false;
+				focusnode = focusnode.right;
+			}
+		}
+
+		if (focusnode == null) {
+			return -1;
+		}
+
+		// If focusnode doesnot have any children
+
+		if (focusnode.left == null && focusnode.right == null) {
+			if (focusnode == node) {
+				root = null;
+			}
+
+			if (isLeftChild) {
+				parent.left = null;
+			} else {
+				parent.right = null;
+			}
+		}
+
+		// If focusnode doesnt have left child
+
+		else if (focusnode.left == null) {
+			if (focusnode == root)
+				root = focusnode.right;
+
+			if (isLeftChild) {
+				parent.left = focusnode.right;
+			} else {
+				parent.right = focusnode.right;
+			}
+
+		}
+
+		// If focusnode doesnt have right child
+
+		else if (focusnode.right == null) {
+			if (focusnode == root)
+				root = focusnode.left;
+
+			if (isLeftChild) {
+				parent.left = focusnode.left;
+			} else {
+				parent.right = focusnode.left;
+			}
+
+		}
+
+		else {
+			BS replacement = findMin(focusnode.right);
+			focusnode.data = replacement.data;
+			BS temp = focusnode;
+			focusnode = replacement;
+			parent = parent(temp.right, focusnode);
+			parent.left = focusnode.left;
+
+		}
+
+		return data;
+	}
+
+	private BS parent(BS currentRoot, BS p) {
+		if (currentRoot == null) {
+			return null;
+		} else {
+			if (currentRoot.left == p || currentRoot.right == p)
+				return currentRoot;
+			else {
+				if (currentRoot.data < p.data) {
+					return parent(currentRoot.right, p);
+				} else {
+					return parent(currentRoot.left, p);
+				}
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		BST bs = new BST();
-		bs.root = bs.TreeInsert(bs.root, 6);
-		bs.root = bs.TreeInsert(bs.root, 1);
-		bs.root = bs.TreeInsert(bs.root, 9);
-		bs.root = bs.TreeInsert(bs.root, 4);
 		bs.root = bs.TreeInsert(bs.root, 8);
+		bs.root = bs.TreeInsert(bs.root, 4);
+		bs.root = bs.TreeInsert(bs.root, 12);
 		bs.root = bs.TreeInsert(bs.root, 2);
-		bs.root = bs.TreeInsert(bs.root, 5);
+		bs.root = bs.TreeInsert(bs.root, 6);
+		bs.root = bs.TreeInsert(bs.root, 10);
+		bs.root = bs.TreeInsert(bs.root, 14);
+		bs.root = bs.TreeInsert(bs.root, 1);
 		bs.root = bs.TreeInsert(bs.root, 3);
+		bs.root = bs.TreeInsert(bs.root, 5);
 		bs.root = bs.TreeInsert(bs.root, 7);
+		bs.root = bs.TreeInsert(bs.root, 9);
+		bs.root = bs.TreeInsert(bs.root, 11);
+		bs.root = bs.TreeInsert(bs.root, 13);
+		bs.root = bs.TreeInsert(bs.root, 15);
+		
 
 		/*
 		 * To verify BST or not // bs.root = new BS(4); // bs.root.left = new
@@ -158,6 +259,11 @@ public class BST {
 		} else {
 			System.out.println("No, it is not a binary tree");
 		}
+
+		int m = bs.deleteNode(bs.root, 8);
+		System.out.println("Removed element is " + m);
+		System.out.println("Inorder Traversal");
+		bs.inOrderTraversalTree(bs.root);
 
 	}
 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class CountCharacterOccurence {
 
 	public static void main(String[] args) {
+		System.out.println("Enter a character whose count is required");
 		Scanner scan = new Scanner(System.in);
 
 		String c = scan.next();

@@ -6,8 +6,9 @@ public class DupArrayElements {
 
 	public static void main(String[] args) {
 
-		int arr[] = new int[] { 1, 2, 2, 2, 3, 4, 3, 5, 4, 6, 6 };
+		int arr[] = new int[] { 1,1, 2, 2, 2, 3, 4, 3, 5, 4, 6, 6 };
 		int temp;
+		//Performing sort
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = i; j < arr.length - 1; j++) {
 				if (arr[i] > arr[j]) {

@@ -1,16 +1,31 @@
-package com.sai;
+package com.topcoder.easy;
 
 public class RepeatString {
-
+	
 	public static void main(String[] args) {
-		String str = repeat("sai", 4);
-		System.out.println(str);
+		int count=0;
+		String str ="ababaa";
+		int len = str.length();
+		boolean is_even = false;
+		if(len %2 ==0)
+		{
+			is_even=true;
+		}
+		char[] str1= str.toCharArray();
+		int len1= (str1.length/2);
+		for(int i =0;i<len1;i++ )
+		{
+			if(str1[i]== str1[i+len1])
+			{
+				System.out.println(str1[i]+","+ str1 [i+len1]);
+			} else {
+				count += 1;
+			}
 
-	}
-
-	public static String repeat(String string, int i) {
-
-		return new String(new char[i]).replace("\0", string);
+		}
+		
+		System.out.println(count);
+		
 	}
 
 }

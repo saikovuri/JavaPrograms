@@ -11,6 +11,7 @@ public class IsUnique {
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i);
 			if (bool[val]) {
+				
 				return false;
 			}
 			bool[val] = true;
@@ -21,7 +22,7 @@ public class IsUnique {
 	}
 
 	public static void main(String[] args) {
-		String str = "abc";
+		String str = "abcc";
 		boolean x = isUnique(str);
 		if (x == true) {
 			System.out.println("Its Unique");

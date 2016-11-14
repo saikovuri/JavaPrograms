@@ -1,45 +1,61 @@
 package com.sai;
 
+import java.util.Stack;
+
 public class BinaryTreeMirror {
-	
+
 	Nodey root;
-	void Mirror()
-	{
+
+	void Mirror() {
 		root = mirror(root);
 	}
 
-	public Nodey mirror(Nodey node)
-	{
-		if(node == null){
+	public Nodey mirror(Nodey node) {
+		if (node == null) {
 			return node;
 		}
 		Nodey left = mirror(node.left);
- 		Nodey right = mirror(node.right);
- 		node.left = right;
- 		node.right = left;
+		Nodey right = mirror(node.right);
+		node.left = right;
+		node.right = left;
 		return node;
-		
+
 	}
-	
-	void inorder()
-	{
+
+	void inorder() {
 		root = inOrder(root);
 	}
-	public Nodey inOrder(Nodey node){
-		
-		if(node == null){
-			return node; 
+
+	public Nodey inOrder(Nodey node) {
+
+		Stack<Nodey> s = new Stack<Nodey>();
+
+		if (node == null) {
+			return node;
 		}
-		
-		inOrder(node.left);
-		System.out.print(node.data + " ");
-		inOrder(node.right);
-		
-		
+		Nodey current = node;
+
+		while (current != null) {
+			s.push(current);
+			current = current.left;
+		}
+
+		while (s.size() > 0) {
+			current = s.pop();
+			System.out.print(current.data + " ");
+			if (current.right != null) {
+				current = current.right;
+				while (current != null) {
+					s.push(current);
+					current = current.left;
+				}
+			}
+
+		}
+
 		return node;
-		
+
 	}
-	
 
 	public static void main(String[] args) {
 		BinaryTreeMirror btm = new BinaryTreeMirror();
@@ -55,19 +71,19 @@ public class BinaryTreeMirror {
 	}
 }
 
-class Nodey{
+class Nodey {
 	Nodey left;
 	Nodey right;
 	int data;
-	
-	Nodey(int data)
-	{
+
+	Nodey(int data) {
 		this.data = data;
 		left = null;
 		right = null;
 	}
-	public int ToString(){
+
+	public int ToString() {
 		return data;
 	}
-	
+
 }

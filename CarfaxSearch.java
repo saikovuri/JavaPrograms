@@ -10,15 +10,9 @@ public class CarfaxSearch {
 
 	public static void main(String[] args) throws IOException {
 
-		FileReader in = new FileReader("C:/Users/Sai Kovuri/Desktop/text.txt");
-		BufferedReader br = new BufferedReader(in);
 
-		while (br.readLine() != null) {
-			String str1 = br.readLine();
-
-			System.out.println(carfaxSearch(str1));
-		}
-		in.close();
+			System.out.println(carfaxSearch("the"));
+		
 	}
 
 	private static String carfaxSearch(String str) {

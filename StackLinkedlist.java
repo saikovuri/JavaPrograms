@@ -2,7 +2,7 @@ package com.sai;
 
 import java.util.EmptyStackException;
 
-public class ArrayLinkedlist {
+public class StackLinkedlist {
 	ArrayNode top = null;
 
 	public void push(int data) {
@@ -31,16 +31,16 @@ public class ArrayLinkedlist {
 
 	public static void main(String[] args) {
 
-		ArrayLinkedlist al = new ArrayLinkedlist();
-		al.push(1);
-		al.push(2);
-		al.push(3);
-		al.push(4);
-		al.display();
-		al.pop();
+		StackLinkedlist sl = new StackLinkedlist();
+		sl.push(1);
+		sl.push(2);
+		sl.push(3);
+		sl.push(4);
+		sl.display();
+		sl.pop();
 
 		System.out.println("After popping");
-		al.display();
+		sl.display();
 	}
 
 }
