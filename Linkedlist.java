@@ -313,7 +313,7 @@ public class Linkedlist {
 		System.out.println("After adding " + m);
 
 		list.display();
-		System.out.println("5th element from end is " +list.printNthFromLast(5));
+		System.out.println("2nd element from end is " +list.printNthFromLast(2));
 		list.printNthFromLastRecursion(list.head, 4);
 		System.out.println("3rd element from end is " +list.nthTolast(list.head, 3).data);
 		// boolean bool =list.checkPalindrome();

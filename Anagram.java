@@ -20,18 +20,20 @@ public class Anagram {
 		for (char c : c1) {
 			int count = 1;
 			if (h1.containsKey(c)) {
-				count = h1.get(c) + 1;
+				h1.put(c, h1.get(c) + 1);
+			} else {
+				h1.put(c, 1);
 			}
-			h1.put(c, count);
 
 		}
 
 		for (char c : c2) {
 			int count = 0;
 			if (h1.containsKey(c)) {
-				count = h1.get(c) - 1;
+				h1.put(c, h1.get(c) - 1);
+			} else {
+				h1.put(c, 1);
 			}
-			h1.put(c, count);
 
 		}
 

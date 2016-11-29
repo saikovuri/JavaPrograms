@@ -31,7 +31,7 @@ public class BinaryTreeMirror {
 		Stack<Nodey> s = new Stack<Nodey>();
 
 		if (node == null) {
-			return node;
+			return null;
 		}
 		Nodey current = node;
 
@@ -56,6 +56,7 @@ public class BinaryTreeMirror {
 		return node;
 
 	}
+	
 
 	public static void main(String[] args) {
 		BinaryTreeMirror btm = new BinaryTreeMirror();
@@ -68,6 +69,7 @@ public class BinaryTreeMirror {
 		System.out.println(" ");
 		btm.Mirror();
 		btm.inorder();
+		
 	}
 }
 
@@ -82,8 +84,8 @@ class Nodey {
 		right = null;
 	}
 
-	public int ToString() {
-		return data;
+	public String toString() {
+		return data + " ";
 	}
 
 }
