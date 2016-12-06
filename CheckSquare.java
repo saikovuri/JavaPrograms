@@ -53,27 +53,27 @@ class CheckSquare {
 		    {
 		        if(d2 == d5)
 		        {
-		            System.out.println(1);
+		        	System.out.println("It forms a sqaure");
 		        }
 		        else
 		        {
-		            System.out.println(0);
+		        	 System.out.println("Doesnt form square");
 		        }
 		    }
 		    else if(d2==d3)
 		    {
 		        if(d1 == d6 )
 		        {
-		            System.out.println(1);
+		        	System.out.println("It forms a sqaure");
 		        }
 		        else
 		        {
-		            System.out.println(0);
+		        	 System.out.println("Doesnt form square");
 		        }
 		    }
 		    else
 		    {
-		        System.out.println(0);
+		    	 System.out.println("Doesnt form square");
 		    }
 
 		}
